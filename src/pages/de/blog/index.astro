@@ -1,0 +1,46 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { translations } from "../../../i18n/translations";
+
+const t = translations.de;
+const posts = (
+  await getCollection("blog", ({ id }) => id.startsWith("de/"))
+).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<Layout title={`${t.blog.title} - Marco Schneider`} lang="de">
+  <div class="max-w-4xl">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-16">
+      {t.blog.title}
+    </h1>
+
+    <div class="space-y-12">
+      {
+        posts.map((post) => (
+          <article class="group">
+            <a href={`/de/blog/${post.slug.replace("de/", "")}`} class="block">
+              <div class="flex items-baseline gap-4 mb-2">
+                <time class="text-text-subtle text-sm font-medium min-w-[100px]">
+                  {post.data.date.toLocaleDateString("de-DE", {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  })}
+                </time>
+                <div class="flex-1">
+                  <h2 class="text-2xl font-display mb-2 group-hover:text-accent transition-colors">
+                    {post.data.title}
+                  </h2>
+                  <p class="text-text-muted leading-relaxed">
+                    {post.data.description}
+                  </p>
+                </div>
+              </div>
+            </a>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</Layout>

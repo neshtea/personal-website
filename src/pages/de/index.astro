@@ -1,0 +1,73 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { translations } from "../../i18n/translations";
+
+const t = translations.de;
+const recentPosts = (
+  await getCollection("blog", ({ id }) => id.startsWith("de/"))
+)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+---
+
+<Layout title="Marco Schneider" lang="de">
+  <div class="space-y-24">
+    <!-- Hero section -->
+    <section class="py-12">
+      <h1
+        class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight"
+      >
+        {t.home.hello}
+        <span class="text-accent">Marco Schneider</span>
+      </h1>
+      <p class="text-xl text-text-muted leading-relaxed max-w-3xl">
+        {t.home.intro}
+      </p>
+    </section>
+
+    <!-- Recent posts -->
+    <section>
+      <div class="flex items-baseline justify-between mb-8">
+        <h2 class="text-2xl font-display font-bold">{t.home.recentPosts}</h2>
+        <a
+          href="/de/blog"
+          class="text-accent hover:text-accent-hover transition-colors text-sm font-medium"
+        >
+          {t.home.viewAll} →
+        </a>
+      </div>
+
+      <div class="grid gap-8">
+        {
+          recentPosts.map((post) => (
+            <article class="group">
+              <a
+                href={`/de/blog/${post.slug.replace("de/", "")}`}
+                class="block"
+              >
+                <div class="flex items-baseline gap-4 mb-2">
+                  <time class="text-text-subtle text-sm font-medium min-w-[100px]">
+                    {post.data.date.toLocaleDateString("de-DE", {
+                      year: "numeric",
+                      month: "short",
+                      day: "numeric",
+                    })}
+                  </time>
+                  <div class="flex-1">
+                    <h3 class="text-xl font-display mb-2 group-hover:text-accent transition-colors">
+                      {post.data.title}
+                    </h3>
+                    <p class="text-text-muted leading-relaxed">
+                      {post.data.description}
+                    </p>
+                  </div>
+                </div>
+              </a>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Layout>

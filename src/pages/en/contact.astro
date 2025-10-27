@@ -1,0 +1,70 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { translations } from "../../i18n/translations";
+
+const t = translations.en;
+---
+
+<Layout title={`${t.contact.title} - Marco Schneider`} lang="en">
+  <article class="max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-12">
+      {t.contact.title}
+    </h1>
+
+    <p class="text-xl text-text-muted mb-12">
+      {t.contact.intro}
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-12">
+      <div>
+        <h3 class="text-green font-semibold mb-4 text-lg">{t.contact.email}</h3>
+        <a
+          href="mailto:marco.schneider@posteo.de"
+          class="text-text-muted hover:text-accent transition-colors text-lg"
+        >
+          marco.schneider@posteo.de
+        </a>
+      </div>
+
+      <div>
+        <h3 class="text-green font-semibold mb-4 text-lg">
+          {t.contact.social}
+        </h3>
+        <ul class="space-y-3 text-lg">
+          <li>
+            <a
+              href="https://chaos.social/@anarres"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
+              Fediverse
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://github.com/neshtea"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
+              GitHub
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/marco-schneider-34391612a/"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
+              LinkedIn
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://bsky.app/profile/defmarco.bsky.social"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
+              Bluesky
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </article>
+</Layout>

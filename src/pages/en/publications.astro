@@ -1,0 +1,94 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { translations } from "../../i18n/translations";
+
+const t = translations.en;
+
+const publications = [
+  {
+    title: "Example Paper Title",
+    authors: "Marco Schneider, Co-Author",
+    venue: "Conference Name 2024",
+    links: {
+      pdf: "#",
+      arxiv: "#",
+    },
+  },
+];
+
+const talks = [
+  {
+    title: "Example Talk Title",
+    event: "Conference Name 2024",
+    location: "City, Country",
+    date: "January 2024",
+    slides: "#",
+  },
+];
+---
+
+<Layout title={`${t.publications.title} - Marco Schneider`} lang="en">
+  <div class="max-w-4xl">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-16">
+      {t.publications.title}
+    </h1>
+
+    <section class="mb-20">
+      <h2 class="text-2xl font-display font-bold mb-8 text-accent">
+        {t.publications.publications}
+      </h2>
+      <div class="space-y-10">
+        {
+          publications.map((pub) => (
+            <article class="border-l-2 border-green pl-6 hover:border-accent transition-colors">
+              <h3 class="text-lg font-display font-semibold mb-2">
+                {pub.title}
+              </h3>
+              <p class="text-text-muted mb-1">{pub.authors}</p>
+              <p class="text-text-subtle text-sm mb-4">{pub.venue}</p>
+              <div class="flex gap-4 text-sm">
+                {Object.entries(pub.links).map(([type, url]) => (
+                  <a
+                    href={url}
+                    class="text-accent hover:text-accent-hover transition-colors font-medium"
+                  >
+                    [{type}]
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-display font-bold mb-8 text-accent">
+        {t.publications.talks}
+      </h2>
+      <div class="space-y-10">
+        {
+          talks.map((talk) => (
+            <article class="border-l-2 border-green pl-6 hover:border-accent transition-colors">
+              <h3 class="text-lg font-display font-semibold mb-2">
+                {talk.title}
+              </h3>
+              <p class="text-text-muted mb-1">{talk.event}</p>
+              <p class="text-text-subtle text-sm mb-4">
+                {talk.location} · {talk.date}
+              </p>
+              {talk.slides && (
+                <a
+                  href={talk.slides}
+                  class="text-accent hover:text-accent-hover transition-colors text-sm font-medium"
+                >
+                  [slides]
+                </a>
+              )}
+            </article>
+          ))
+        }
+      </div>
+    </section>
+  </div>
+</Layout>

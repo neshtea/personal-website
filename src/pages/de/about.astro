@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { translations } from "../../i18n/translations";
+
+const t = translations.de;
+---
+
+<Layout title={`${t.about.title} - Marco Schneider`} lang="de">
+  <article class="max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-12">
+      {t.about.title}
+    </h1>
+
+    <div
+      class="prose prose-invert max-w-none space-y-6 text-text-muted text-lg leading-relaxed"
+    >
+      <p>
+        Schreibe hier deine Biografie. Erzähle von deinem Hintergrund, deiner
+        Ausbildung, deiner aktuellen Arbeit und deinen Interessen.
+      </p>
+
+      <p>
+        Teile, was dich antreibt, deine Philosophie oder deinen Ansatz in deiner
+        Arbeit.
+      </p>
+
+      <p>Füge weitere relevante Informationen über dich hinzu.</p>
+    </div>
+
+    <h2 class="text-2xl font-display font-bold mt-16 mb-6">
+      {t.about.interests}
+    </h2>
+    <p class="text-text-muted text-lg leading-relaxed">
+      Liste hier deine beruflichen und persönlichen Interessen auf.
+    </p>
+  </article>
+</Layout>
