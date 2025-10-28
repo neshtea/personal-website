@@ -1,30 +1,9 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { translations } from "../../i18n/translations";
+import { publications, talks, workshops } from "../../content/publications";
 
 const t = translations.de;
-
-const publications = [
-  {
-    title: "Beispiel-Paper Titel",
-    authors: "Dein Name, Co-Autor",
-    venue: "Konferenzname 2024",
-    links: {
-      pdf: "#",
-      arxiv: "#",
-    },
-  },
-];
-
-const talks = [
-  {
-    title: "Beispiel-Vortrag Titel",
-    event: "Konferenzname 2024",
-    location: "Stadt, Land",
-    date: "Januar 2024",
-    slides: "#",
-  },
-];
 ---
 
 <Layout title={`${t.publications.title} - Marco Schneider`} lang="de">
@@ -62,6 +41,37 @@ const talks = [
       </div>
     </section>
 
+    <section class="mb-20">
+      <h2 class="text-2xl font-display font-bold mb-8 text-accent">
+        Workshops
+      </h2>
+      <div class="space-y-10">
+        {
+          workshops.map((workshop) => (
+            <article class="border-l-2 border-green pl-6 hover:border-accent transition-colors">
+              <h3 class="text-lg font-display font-semibold mb-2">
+                {workshop.title}
+              </h3>
+              <p class="text-text-muted mb-1">{workshop.venue}</p>
+              <p class="text-text-subtle text-sm mb-4">
+                {workshop.location} · {workshop.date}
+              </p>
+              <div class="flex gap-4 text-sm">
+                {Object.entries(workshop.links).map(([type, url]) => (
+                  <a
+                    href={url}
+                    class="text-accent hover:text-accent-hover transition-colors font-medium"
+                  >
+                    [{type}]
+                  </a>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </section>
+
     <section>
       <h2 class="text-2xl font-display font-bold mb-8 text-accent">
         {t.publications.talks}
@@ -77,14 +87,16 @@ const talks = [
               <p class="text-text-subtle text-sm mb-4">
                 {talk.location} · {talk.date}
               </p>
-              {talk.slides && (
-                <a
-                  href={talk.slides}
-                  class="text-accent hover:text-accent-hover transition-colors text-sm font-medium"
-                >
-                  [folien]
-                </a>
-              )}
+              <div class="flex gap-4 text-sm">
+                {Object.entries(talk.links).map(([type, url]) => (
+                  <a
+                    href={url}
+                    class="text-accent hover:text-accent-hover transition-colors font-medium"
+                  >
+                    [{type}]
+                  </a>
+                ))}
+              </div>
             </article>
           ))
         }
