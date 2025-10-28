@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import { translations } from "../../i18n/translations";
+import profile from "../../images/profile.jpg";
 
 const t = translations.de;
 ---
@@ -14,24 +16,60 @@ const t = translations.de;
     <div
       class="prose prose-invert max-w-none space-y-6 text-text-muted text-lg leading-relaxed"
     >
+      <div class="grid grid-cols-3">
+        <p class="col-span-2 pr-5">
+          Ich bin Marco Schneider, lebe in Wien, Österreich, und schreibe
+          Software. Ich arbeite für die <a
+            class="text-accent hover:underline"
+            href="https://active-group.de">Active Group GmbH</a
+          >, der führende Experte für Individualsoftware, entwickelt mit den
+          Mitteln der Funktionalen Programmierung. Dort bin ich
+          Softwarearchitekt, Entwickler und
+          <a
+            class="text-accent hover:underline"
+            href="https://active-group.de/team/marco-schneider/"
+            >Oberermöglicher</a
+          >. Ich arbeite an unterschiedlichsten Projekten mit einer Vielzahl
+          verschiedener Technologien und Architekturen. Darüber hinaus bringe
+          ich interessierten Menschen die funktionale Programmierung und
+          Softwarearchitektur in Form von Workshops oder Vorträgen bei
+          Konferenzen bei. Ich bin akkreditierter Trainer für das iSAQB CSPA-A
+          module <a
+            class="text-accent hover:underline"
+            href="https://www.isaqb.org/certifications/cpsa-certifications/cpsa-advanced-level/funar-functional-software-architecture/?ref=defmarco.com"
+            >FUNAR - Functional Software Architecture</a
+          >.
+        </p>
+        <Image
+          src={profile}
+          class="object-scale-down rounded-xl"
+          alt="Profile picture of Marco, wearing sunglasses and a brown dress shirt. The image is intentionally blurry."
+        />
+      </div>
+      <h2 class="text-2xl font-display font-bold mt-16 mb-6">Programmierung</h2>
       <p>
-        Schreibe hier deine Biografie. Erzähle von deinem Hintergrund, deiner
-        Ausbildung, deiner aktuellen Arbeit und deinen Interessen.
+        Hauptsächlich interessiere ich mich für funktionale Programmierung und
+        Softwarearchitekture und ihre Anwendung in der Industrie. Ich habe früh
+        mein Herz an Lisp-Sprachen wie Clojure(Script), Scheme oder Common Lisp
+        und ML-Abkömmlinge wie Haskell oder Ocaml verloren. Ganz allgemein mag
+        ich Sprachen, die mir die (funktionale) Programmierung erleichtern, was
+        auch Sprachen wie Erlang/Elixir, ECMA-Script (aka JavaScript)
+        beinhaltet.
       </p>
-
       <p>
-        Teile, was dich antreibt, deine Philosophie oder deinen Ansatz in deiner
-        Arbeit.
+        Seit einiger Zeit interessiere ich mich auch für das Thema <a
+          class="text-accent hover:underline"
+          href="https://nixos.org">nix</a
+        > und reproduzierbare Builds und Entwicklungsumgebungen in der Auslierfung
+        von Software.
       </p>
-
-      <p>Füge weitere relevante Informationen über dich hinzu.</p>
+      <p>
+        Hin und wieder schreibe ich auch Beiträge für <a
+          class="text-accent hover:underline"
+          href="https://funktionale-programmierung.de"
+          >funktionale-programmierung.de</a
+        > — den größten Deutschsprachigen Blog zum Thema funktionale Programmierung.
+      </p>
     </div>
-
-    <h2 class="text-2xl font-display font-bold mt-16 mb-6">
-      {t.about.interests}
-    </h2>
-    <p class="text-text-muted text-lg leading-relaxed">
-      Liste hier deine beruflichen und persönlichen Interessen auf.
-    </p>
   </article>
 </Layout>

@@ -1,6 +1,8 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../../layouts/Layout.astro";
 import { translations } from "../../i18n/translations";
+import profile from "../../images/profile.jpg";
 
 const t = translations.en;
 ---
@@ -14,23 +16,60 @@ const t = translations.en;
     <div
       class="prose prose-invert max-w-none space-y-6 text-text-muted text-lg leading-relaxed"
     >
+      <div class="grid grid-cols-3">
+        <p class="col-span-2 pr-5">
+          I'm Marco Schneider, I live in Vienna, Austria, and I write software.
+          I work at <a
+            class="text-accent hover:underline"
+            href="https://active-group.de">Active Group GmbH</a
+          >, one of the leading providers of custom software using functional
+          programming in Germany as a software architect, developer and <a
+            class="text-accent hover:underline"
+            href="https://active-group.de/team/marco-schneider/"
+            >chief technology facilitator</a
+          >. At Active Group, I work on different projects utilising a variety
+          of technologies and architectures. In addition, I teach functional
+          programming and functional software architecture in workshops and
+          speak about it at conferences. I'm a certified trainer for the iSAQB
+          CSPA-A module <a
+            class="text-accent hover:underline"
+            href="https://www.isaqb.org/certifications/cpsa-certifications/cpsa-advanced-level/funar-functional-software-architecture/?ref=defmarco.com"
+            >FUNAR - Functional Software Architecture</a
+          >.
+        </p>
+        <Image
+          src={profile}
+          class="object-scale-down rounded-xl"
+          alt="Profile picture of Marco, wearing sunglasses and a brown dress shirt. The image is intentionally blurry."
+        />
+      </div>
+      <h2 class="text-2xl font-display font-bold mt-16 mb-6">Programming</h2>
       <p>
-        Write your bio here. Talk about your background, education, current
-        work, and interests.
+        I'm interested in functional programming, functional software
+        architecture and its application in the industry. I love Lisp-languages
+        such as Clojure(Script), Scheme or Common Lisp and ML-decendants (OCaml,
+        Haskell, …). In general, I prefer languages that afford the use of
+        functional programming techniques, which includes Erlang/Elixir,
+        ECMA-script and more. For some time now I'm also interested in nix and
+        reproducible builds and delivery of software.
       </p>
-
       <p>
-        Share what drives you, your philosophy, or your approach to your work.
+        Every now and then I contribute to <a
+          class="text-accent hover:underline"
+          href="https://funktionale-programmierung.de"
+          >funktionale-programmierung.de</a
+        > — the largest German language blog on all things functional programming.
+        <p>
+          Share what drives you, your philosophy, or your approach to your work.
+        </p>
       </p>
-
-      <p>Include any other relevant information about yourself.</p>
+      <!-- 
+      <h2 class="text-2xl font-display font-bold mt-16 mb-6">
+        {t.about.interests}
+      </h2>
+      <p class="text-text-muted text-lg leading-relaxed">
+        List your professional and personal interests here.
+      </p> -->
     </div>
-
-    <h2 class="text-2xl font-display font-bold mt-16 mb-6">
-      {t.about.interests}
-    </h2>
-    <p class="text-text-muted text-lg leading-relaxed">
-      List your professional and personal interests here.
-    </p>
   </article>
 </Layout>

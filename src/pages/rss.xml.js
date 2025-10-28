@@ -17,6 +17,5 @@ export async function GET(context) {
         link: `/${lang}/blog/${slug}/`,
       };
     }),
-    customData: `<language>de</language>`,
   });
 }
