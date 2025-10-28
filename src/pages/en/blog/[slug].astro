@@ -17,7 +17,7 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 ---
 
-<Layout title={post.data.title} lang="en">
+<Layout title={post.data.title!} lang="en">
   <article class="max-w-3xl">
     <header class="mb-12">
       <h1 class="text-4xl md:text-5xl font-display font-bold mb-4">
@@ -25,7 +25,7 @@ const { Content } = await post.render();
       </h1>
       <time class="text-text-subtle">
         {
-          post.data.date.toLocaleDateString("en-US", {
+          post.data.pubDate?.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
             day: "numeric",

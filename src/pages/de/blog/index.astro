@@ -6,7 +6,7 @@ import { translations } from "../../../i18n/translations";
 const t = translations.de;
 const posts = (
   await getCollection("blog", ({ id }) => id.startsWith("de/"))
-).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+).sort((a, b) => b.data.pubDate!.valueOf() - a.data.pubDate!.valueOf());
 ---
 
 <Layout title={`${t.blog.title} - Marco Schneider`} lang="de">
@@ -22,7 +22,7 @@ const posts = (
             <a href={`/de/blog/${post.slug.replace("de/", "")}`} class="block">
               <div class="flex items-baseline gap-4 mb-2">
                 <time class="text-text-subtle text-sm font-medium min-w-[100px]">
-                  {post.data.date.toLocaleDateString("de-DE", {
+                  {post.data.pubDate?.toLocaleDateString("de-DE", {
                     year: "numeric",
                     month: "short",
                     day: "numeric",

@@ -10,34 +10,95 @@
         "description": {
           "type": "string"
         },
-        "date": {
+        "pubDate": {
           "anyOf": [
             {
-              "type": "string",
-              "format": "date-time"
+              "type": "string"
             },
             {
-              "type": "string",
-              "format": "date"
+              "type": "number"
             },
             {
-              "type": "integer",
-              "format": "unix-time"
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
             }
           ]
         },
-        "draft": {
-          "type": "boolean"
+        "customData": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "author": {
+          "type": "string"
+        },
+        "commentsUrl": {
+          "type": "string"
+        },
+        "source": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "format": "uri"
+            },
+            "title": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "title"
+          ],
+          "additionalProperties": false
+        },
+        "enclosure": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string"
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "type": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "url",
+            "length",
+            "type"
+          ],
+          "additionalProperties": false
+        },
+        "link": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
         },
         "$schema": {
           "type": "string"
         }
       },
-      "required": [
-        "title",
-        "description",
-        "date"
-      ],
       "additionalProperties": false
     }
   },

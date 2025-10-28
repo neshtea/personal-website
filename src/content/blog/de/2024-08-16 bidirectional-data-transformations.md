@@ -1,11 +1,11 @@
 ---
 title: Bidirectional Data Transformations accepted to FUNARCH 2024 (ICFP)
 date: 2024-08-16
-description: Our paper "Bidirectional Data Transformations" was accepted for The Second ACM SIGPLAN Workshop on Functional Programming - FP in the Large.
+description: Unser Paper "Bidirectional Data Transformations" wurde beim The Second ACM SIGPLAN Workshop on Functional Programming - FP in the Large angenommen.
 ---
 
 <p class="mb-2">
-Unser paper <a href="https://icfp24.sigplan.org/details/funarch-2024-papers/6/Bidirectional-Data-Transformations?ref=defmarco.com" class="text-accent hover:underline">"Bidirectional Data Transformations"</a> wurde beim <a href="https://icfp24.sigplan.org/home/funarch-2024?ref=defmarco.com#the-second-acm-sigplan-workshop-on-functional-software-architecture-fp-in-the-large" class="text-accent hover:underline">The Second
+Unser Paper <a href="https://icfp24.sigplan.org/details/funarch-2024-papers/6/Bidirectional-Data-Transformations?ref=defmarco.com" class="text-accent hover:underline">"Bidirectional Data Transformations"</a> wurde beim <a href="https://icfp24.sigplan.org/home/funarch-2024?ref=defmarco.com#the-second-acm-sigplan-workshop-on-functional-software-architecture-fp-in-the-large" class="text-accent hover:underline">The Second
 ACM SIGPLAN Workshop on Functional Software Architecture - FP in the Large</a> angenommen. Es handelt sich um das erste Paper das ich gemeinsam mit meinen Koautoren Marcus Crestani, Markus Schlegel (alle von der <a href="https://active-group.de" class="text-accent hover:underline">Active Group GmbH</a>) verfasst habe. Gegeben der kurzen Zeit, die uns zur Verfügung stand, bin ich mit dem Ergebnis zufrieden.
 Wir sind super glücklich – einen Beitrag zur einem ICFP-Event beizusteuern hätte ich mir nie denken lassen.
 </p>

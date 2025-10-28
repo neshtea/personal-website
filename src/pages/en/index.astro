@@ -7,7 +7,7 @@ const t = translations.en;
 const recentPosts = (
   await getCollection("blog", ({ id }) => id.startsWith("en/"))
 )
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .sort((a, b) => b.data.pubDate!.valueOf() - a.data.pubDate!.valueOf())
   .slice(0, 3);
 ---
 
@@ -48,7 +48,7 @@ const recentPosts = (
               >
                 <div class="flex items-baseline gap-4 mb-2">
                   <time class="text-text-subtle text-sm font-medium min-w-[100px]">
-                    {post.data.date.toLocaleDateString("en-US", {
+                    {post.data.pubDate?.toLocaleDateString("en-US", {
                       year: "numeric",
                       month: "short",
                       day: "numeric",
