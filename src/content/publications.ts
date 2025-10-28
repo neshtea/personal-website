@@ -18,7 +18,9 @@ export const workshops = [
     venue: "Rheinwerk KKon",
     location: "online",
     date: "September 2024",
-    links: {},
+    links: {
+      kkon_archive: "https://web.archive.org/web/20240917025605/https://rheinwerk-kkon.de/workshops/schneider-einstieg-funktionale-programmierung-einstieg/?ref=defmarco.com"
+    },
   },
   {
     title: "Funktionale Programmierung -- Einführung",
