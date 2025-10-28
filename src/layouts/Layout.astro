@@ -22,6 +22,7 @@ const alternatePath = currentPath.replace(`/${lang}`, `/${otherLang}`);
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
+    <meta name="fediverse:creator" content="@anarres@chaos.social">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="alternate"
@@ -125,6 +126,7 @@ const alternatePath = currentPath.replace(`/${lang}`, `/${otherLang}`);
           </div>
         </div>
       </footer>
+      <a class="hidden" rel="me" href="https://chaos.social/@anarres">Mastodon</a>
     </div>
   </body>
 </html>
