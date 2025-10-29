@@ -1,5 +1,7 @@
 ---
 import { translations, type Locale } from "../i18n/translations";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
   title: string;
@@ -22,7 +24,7 @@ const alternatePath = currentPath.replace(`/${lang}`, `/${otherLang}`);
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="viewport" content="width=device-width" />
-    <meta name="fediverse:creator" content="@anarres@chaos.social">
+    <meta name="fediverse:creator" content="@anarres@chaos.social" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="alternate"
@@ -37,73 +39,7 @@ const alternatePath = currentPath.replace(`/${lang}`, `/${otherLang}`);
   <body class="bg-background text-text antialiased">
     <div class="min-h-screen">
       <!-- Header with language switcher -->
-      <header
-        class="border-b border-surface sticky top-0 bg-background/95 backdrop-blur-sm z-10"
-      >
-        <div class="max-w-5xl mx-auto px-6 py-6">
-          <nav class="flex items-center justify-between">
-            <a
-              href={`/${lang}`}
-              class="text-xl font-display font-bold text-text hover:text-accent transition-colors"
-            >
-              Marco Schneider
-            </a>
-
-            <div class="flex items-center gap-8">
-              <ul class="flex gap-6 text-sm font-medium">
-                <li>
-                  <a
-                    href={`/${lang}/about`}
-                    class={`hover:text-accent transition-colors ${currentPath.includes("/about") ? "text-accent" : "text-text-muted"}`}
-                  >
-                    {t.nav.about}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`/${lang}/publications`}
-                    class={`hover:text-accent transition-colors ${currentPath.includes("/publications") ? "text-accent" : "text-text-muted"}`}
-                  >
-                    {t.nav.publications}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`/${lang}/blog`}
-                    class={`hover:text-accent transition-colors ${currentPath.includes("/blog") ? "text-accent" : "text-text-muted"}`}
-                  >
-                    {t.nav.blog}
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href={`/${lang}/contact`}
-                    class={`hover:text-accent transition-colors ${currentPath.includes("/contact") ? "text-accent" : "text-text-muted"}`}
-                  >
-                    {t.nav.contact}
-                  </a>
-                </li>
-              </ul>
-
-              <!-- Language switcher -->
-              <div class="flex gap-2 text-sm border-l border-surface pl-6">
-                <a
-                  href={currentPath.replace(`/${lang}`, "/de")}
-                  class={`px-2 py-1 rounded transition-colors ${lang === "de" ? "bg-accent text-background" : "text-text-muted hover:text-accent"}`}
-                >
-                  DE
-                </a>
-                <a
-                  href={currentPath.replace(`/${lang}`, "/en")}
-                  class={`px-2 py-1 rounded transition-colors ${lang === "en" ? "bg-accent text-background" : "text-text-muted hover:text-accent"}`}
-                >
-                  EN
-                </a>
-              </div>
-            </div>
-          </nav>
-        </div>
-      </header>
+      <Header lang={lang} currentPath={currentPath} translations={t} />
 
       <!-- Main content -->
       <main class="max-w-5xl mx-auto px-6 py-16">
@@ -111,22 +47,10 @@ const alternatePath = currentPath.replace(`/${lang}`, `/${otherLang}`);
       </main>
 
       <!-- Footer -->
-      <footer class="border-t border-surface mt-24">
-        <div class="max-w-5xl mx-auto px-6 py-8">
-          <div
-            class="flex justify-between items-center text-text-subtle text-sm"
-          >
-            <p>© {new Date().getFullYear()} Marco Schneider</p>
-            <a
-              href={`/rss.xml`}
-              class="hover:text-accent transition-colors"
-            >
-              {t.footer.rss}
-            </a>
-          </div>
-        </div>
-      </footer>
-      <a class="hidden" rel="me" href="https://chaos.social/@anarres">Mastodon</a>
+      <Footer rssLabel={t.footer.rss} />
+      <a class="hidden" rel="me" href="https://chaos.social/@anarres"
+        >Mastodon</a
+      >
     </div>
   </body>
 </html>
