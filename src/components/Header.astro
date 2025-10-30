@@ -1,7 +1,6 @@
 ---
 const { lang, currentPath, translations } = Astro.props;
 ---
-
 <header
   class="border-b border-surface sticky top-0 bg-background/95 backdrop-blur-sm z-10"
 >
@@ -14,7 +13,8 @@ const { lang, currentPath, translations } = Astro.props;
         Marco Schneider
       </a>
 
-      <div class="flex items-center gap-8">
+      <!-- Desktop Navigation -->
+      <div class="hidden md:flex items-center gap-8">
         <ul class="flex gap-6 text-sm font-medium">
           <li>
             <a
@@ -49,7 +49,6 @@ const { lang, currentPath, translations } = Astro.props;
             </a>
           </li>
         </ul>
-
         <!-- Language switcher -->
         <div class="flex gap-2 text-sm border-l border-surface pl-6">
           <a
@@ -66,6 +65,104 @@ const { lang, currentPath, translations } = Astro.props;
           </a>
         </div>
       </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden flex flex-col space-y-1.5 w-6 h-6 justify-center"
+        aria-label="Toggle menu"
+      >
+        <span class="block w-6 h-0.5 bg-text transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-text transition-all duration-300"></span>
+        <span class="block w-6 h-0.5 bg-text transition-all duration-300"></span>
+      </button>
     </nav>
+
+    <!-- Mobile Menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden flex-col pt-6 pb-2 space-y-4"
+    >
+      <ul class="flex flex-col space-y-4 text-sm font-medium">
+        <li>
+          <a
+            href={`/${lang}/about`}
+            class={`block py-2 hover:text-accent transition-colors ${currentPath.includes("/about") ? "text-accent" : "text-text-muted"}`}
+          >
+            {translations.nav.about}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`/${lang}/publications`}
+            class={`block py-2 hover:text-accent transition-colors ${currentPath.includes("/publications") ? "text-accent" : "text-text-muted"}`}
+          >
+            {translations.nav.publications}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`/${lang}/blog`}
+            class={`block py-2 hover:text-accent transition-colors ${currentPath.includes("/blog") ? "text-accent" : "text-text-muted"}`}
+          >
+            {translations.nav.blog}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`/${lang}/contact`}
+            class={`block py-2 hover:text-accent transition-colors ${currentPath.includes("/contact") ? "text-accent" : "text-text-muted"}`}
+          >
+            {translations.nav.contact}
+          </a>
+        </li>
+      </ul>
+      <!-- Mobile Language switcher -->
+      <div class="flex gap-2 text-sm pt-4 border-t border-surface">
+        <a
+          href={currentPath.replace(`/${lang}`, "/de")}
+          class={`px-3 py-2 rounded transition-colors ${lang === "de" ? "bg-accent text-background" : "text-text-muted hover:text-accent"}`}
+        >
+          DE
+        </a>
+        <a
+          href={currentPath.replace(`/${lang}`, "/en")}
+          class={`px-3 py-2 rounded transition-colors ${lang === "en" ? "bg-accent text-background" : "text-text-muted hover:text-accent"}`}
+        >
+          EN
+        </a>
+      </div>
+    </div>
   </div>
 </header>
+
+<script>
+  const menuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = mobileMenu?.classList.contains('flex');
+    
+    if (isOpen) {
+      mobileMenu?.classList.remove('flex');
+      mobileMenu?.classList.add('hidden');
+    } else {
+      mobileMenu?.classList.remove('hidden');
+      mobileMenu?.classList.add('flex');
+    }
+    
+    // Animate burger to X
+    const spans = menuBtn?.querySelectorAll('span');
+    if (spans) {
+      if (isOpen) {
+        spans[0].style.transform = 'rotate(0)';
+        spans[1].style.opacity = '1';
+        spans[2].style.transform = 'rotate(0)';
+      } else {
+        spans[0].style.transform = 'translateY(8px) rotate(45deg)';
+        spans[1].style.opacity = '0';
+        spans[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+      }
+    }
+  });
+</script>
