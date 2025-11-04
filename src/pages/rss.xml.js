@@ -21,5 +21,6 @@ export async function GET(context) {
         link: `/${lang}/blog/${slug}/`,
       };
     }),
+    customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`
   });
 }
