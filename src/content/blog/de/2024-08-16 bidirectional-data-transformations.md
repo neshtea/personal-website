@@ -1,6 +1,6 @@
 ---
 title: Bidirectional Data Transformations accepted to FUNARCH 2024 (ICFP)
-date: 2024-08-16
+pubDate: 2024-08-16
 description: Unser Paper "Bidirectional Data Transformations" wurde beim The Second ACM SIGPLAN Workshop on Functional Programming - FP in the Large angenommen.
 ---
 
