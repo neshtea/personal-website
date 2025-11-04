@@ -12,7 +12,7 @@ export async function GET(context) {
       const slug = post.slug.replace(`${lang}/`, "");
       return {
         title: post.data.title,
-        pubDate: post.data.date,
+        pubDate: post.data.pubDate,
         description: post.data.description,
         link: `/${lang}/blog/${slug}/`,
       };
