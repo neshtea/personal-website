@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 
 export async function GET(context) {
   const posts = await getCollection("blog");
+  const clean = (s: string) => s.trim().replace(/\s+/g, " ");
   return rss({
     title: "defmarco.com",
     description: "Personal blog and writings",
@@ -15,10 +16,10 @@ export async function GET(context) {
       const lang = post.slug.startsWith("de/") ? "de" : "en";
       const slug = post.slug.replace(`${lang}/`, "");
       return {
-        title: post.data.title,
+        title: clean(post.data.title!),
         pubDate: post.data.pubDate,
-        description: post.data.description,
-        link: `/${lang}/blog/${slug}/`,
+        description: clean(post.data.description!),
+        link: `${context.site}${lang}/blog/${slug}/`,
       };
     }),
     customData: `<atom:link href="${context.site}rss.xml" rel="self" type="application/rss+xml" />`
