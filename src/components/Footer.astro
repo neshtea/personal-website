@@ -1,12 +1,36 @@
 ---
 const { rssLabel } = Astro.props
 ---
-<!-- Footer -->
-<footer class="border-t border-surface mt-24">
-  <div class="max-w-5xl mx-auto px-6 py-8">
-    <div class="flex justify-between items-center text-text-subtle text-sm">
+<style>
+  footer {
+    border-top: 1px solid #ddd;
+    margin-top: 6rem;
+  }
+
+  .footer-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666;
+    font-size: 0.875rem;
+  }
+
+  .footer-content a:hover {
+    color: #0066cc;
+  }
+</style>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-content">
       <p>© {new Date().getFullYear()} Marco Schneider</p>
-      <a href={`/rss.xml`} class="hover:text-accent transition-colors">
+      <a href={`/rss.xml`}>
         {rssLabel}
       </a>
     </div>

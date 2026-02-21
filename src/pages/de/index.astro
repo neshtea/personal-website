@@ -11,54 +11,141 @@ const recentPosts = (
   .slice(0, 3);
 ---
 
+<style>
+  .hero {
+    padding: 3rem 0;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 3.75rem;
+    }
+  }
+
+  .accent {
+    color: #0066cc;
+  }
+
+  .intro {
+    font-size: 1.25rem;
+    color: #666;
+    line-height: 1.6;
+    max-width: 48rem;
+  }
+
+  .section {
+    margin-top: 6rem;
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .view-all {
+    color: #0066cc;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .posts-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  article {
+    display: block;
+  }
+
+  .post-content {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+  }
+
+  time {
+    color: #888;
+    font-size: 0.875rem;
+    font-weight: 500;
+    min-width: 100px;
+  }
+
+  .post-text {
+    flex: 1;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  article:hover h3 {
+    color: #0066cc;
+  }
+
+  .description {
+    color: #666;
+    line-height: 1.6;
+  }
+</style>
+
 <Layout title="Marco Schneider" lang="de">
-  <div class="space-y-24">
+  <div>
     <!-- Hero section -->
-    <section class="py-12">
-      <h1
-        class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight"
-      >
+    <section class="hero">
+      <h1>
         {t.home.hello}
-        <span class="text-accent">Marco Schneider</span>
+        <span class="accent">Marco Schneider</span>
       </h1>
-      <p class="text-xl text-text-muted leading-relaxed max-w-3xl">
+      <p class="intro">
         {t.home.intro}
       </p>
     </section>
 
     <!-- Recent posts -->
-    <section>
-      <div class="flex items-baseline justify-between mb-8">
-        <h2 class="text-2xl font-display font-bold">{t.home.recentPosts}</h2>
-        <a
-          href="/de/blog"
-          class="text-accent hover:text-accent-hover transition-colors text-sm font-medium"
-        >
+    <section class="section">
+      <div class="section-header">
+        <h2>{t.home.recentPosts}</h2>
+        <a href="/de/blog" class="view-all">
           {t.home.viewAll} →
         </a>
       </div>
 
-      <div class="grid gap-8">
+      <div class="posts-grid">
         {
           recentPosts.map((post) => (
-            <article class="group">
+            <article>
               <a
                 href={`/de/blog/${post.slug.replace("de/", "")}`}
-                class="block"
               >
-                <div class="flex items-baseline gap-4 mb-2">
-                  <time class="text-text-subtle text-sm font-medium min-w-[100px]">
+                <div class="post-content">
+                  <time>
                     {post.data.pubDate?.toLocaleDateString("de-DE", {
                       year: "numeric",
                       month: "short",
                       day: "numeric",
                     })}
                   </time>
-                  <div class="flex-1">
-                    <h3 class="text-xl font-display mb-2 group-hover:text-accent transition-colors">
+                  <div class="post-text">
+                    <h3>
                       {post.data.title}
                     </h3>
-                    <p class="text-text-muted leading-relaxed">
+                    <p class="description">
                       {post.data.description}
                     </p>
                   </div>

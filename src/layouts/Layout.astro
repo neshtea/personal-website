@@ -35,22 +35,49 @@ const alternatePath = currentPath.replace(`/${lang}`, `/${otherLang}`);
     <link rel="alternate" hreflang={otherLang} href={alternatePath} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <style is:global>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        line-height: 1.5;
+        color: #333;
+        background: #fff;
+      }
+
+      a {
+        color: #0066cc;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 2rem 1rem;
+      }
+    </style>
   </head>
-  <body class="bg-background text-text antialiased">
-    <div class="min-h-screen">
-      <!-- Header with language switcher -->
-      <Header lang={lang} currentPath={currentPath} translations={t} />
+  <body>
+    <!-- Header with language switcher -->
+    <Header lang={lang} currentPath={currentPath} translations={t} />
 
-      <!-- Main content -->
-      <main class="max-w-5xl mx-auto px-6 py-16">
-        <slot />
-      </main>
+    <!-- Main content -->
+    <main>
+      <slot />
+    </main>
 
-      <!-- Footer -->
-      <Footer rssLabel={t.footer.rss} />
-      <a class="hidden" rel="me" href="https://chaos.social/@anarres"
-        >Mastodon</a
-      >
-    </div>
+    <!-- Footer -->
+    <Footer rssLabel={t.footer.rss} />
+    <a style="display: none;" rel="me" href="https://chaos.social/@anarres"
+      >Mastodon</a
+    >
   </body>
 </html>
