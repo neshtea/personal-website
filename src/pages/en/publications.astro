@@ -6,112 +6,31 @@ import { publications, workshops, talks } from "../../content/publications";
 const t = translations.en;
 ---
 
-<style>
-  .container {
-    max-width: 56rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 4rem;
-  }
-
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 3rem;
-    }
-  }
-
-  section {
-    margin-bottom: 5rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-    color: #0066cc;
-  }
-
-  .items-list {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-  }
-
-  article {
-    border-left: 2px solid #4ade80;
-    padding-left: 1.5rem;
-  }
-
-  article:hover {
-    border-left-color: #0066cc;
-  }
-
-  h3 {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-  }
-
-  .authors,
-  .event {
-    color: #666;
-    margin-bottom: 0.25rem;
-  }
-
-  .venue,
-  .location {
-    color: #888;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-
-  .description-text {
-    color: #666;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-  }
-
-  .links {
-    display: flex;
-    gap: 1rem;
-    font-size: 0.875rem;
-  }
-
-  .links a {
-    color: #0066cc;
-    font-weight: 500;
-  }
-
-  .links a:hover {
-    color: #0052a3;
-  }
-</style>
-
 <Layout title={`${t.publications.title} - Marco Schneider`} lang="en">
-  <div class="container">
-    <h1>
+  <div class="max-w-4xl">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-16">
       {t.publications.title}
     </h1>
 
-    <section>
-      <h2>
+    <section class="mb-20">
+      <h2 class="text-2xl font-display font-bold mb-8 text-accent">
         {t.publications.publications}
       </h2>
-      <div class="items-list">
+      <div class="space-y-10">
         {
           publications.map((pub) => (
-            <article>
-              <h3>
+            <article class="border-l-2 border-green pl-6 hover:border-accent transition-colors">
+              <h3 class="text-lg font-display font-semibold mb-2">
                 {pub.title}
               </h3>
-              <p class="authors">{pub.authors}</p>
-              <p class="venue">{pub.venue}</p>
-              <div class="links">
+              <p class="text-text-muted mb-1">{pub.authors}</p>
+              <p class="text-text-subtle text-sm mb-4">{pub.venue}</p>
+              <div class="flex gap-4 text-sm">
                 {Object.entries(pub.links).map(([type, url]) => (
-                  <a href={url}>
+                  <a
+                    href={url}
+                    class="text-accent hover:text-accent-hover transition-colors font-medium"
+                  >
                     [{type}]
                   </a>
                 ))}
@@ -122,27 +41,30 @@ const t = translations.en;
       </div>
     </section>
 
-    <section>
-      <h2>
+    <section class="mb-20">
+      <h2 class="text-2xl font-display font-bold mb-8 text-accent">
         Workshops
       </h2>
-      <div class="items-list">
+      <div class="space-y-10">
         {
           workshops.map((workshop) => (
-            <article>
-              <h3>
+            <article class="border-l-2 border-green pl-6 hover:border-accent transition-colors">
+              <h3 class="text-lg font-display font-semibold mb-2">
                 {workshop.title}
               </h3>
-              <p class="authors">{workshop.venue}</p>
-              <p class="description-text">
+              <p class="text-text-muted mb-1">{workshop.venue}</p>
+              <p class="text-text-muted text-sm mb-4">
                  {workshop.description.en}
               </p>
-              <p class="location">
+              <p class="text-text-subtle text-sm mb-4">
                 {workshop.location} · {workshop.date}
               </p>
-              <div class="links">
+              <div class="flex gap-4 text-sm">
                 {Object.entries(workshop.links).map(([type, url]) => (
-                  <a href={url}>
+                  <a
+                    href={url}
+                    class="text-accent hover:text-accent-hover transition-colors font-medium"
+                  >
                     [{type}]
                   </a>
                 ))}
@@ -154,23 +76,26 @@ const t = translations.en;
     </section>
 
     <section>
-      <h2>
+      <h2 class="text-2xl font-display font-bold mb-8 text-accent">
         {t.publications.talks}
       </h2>
-      <div class="items-list">
+      <div class="space-y-10">
         {
           talks.map((talk) => (
-            <article>
-              <h3>
+            <article class="border-l-2 border-green pl-6 hover:border-accent transition-colors">
+              <h3 class="text-lg font-display font-semibold mb-2">
                 {talk.title}
               </h3>
-              <p class="event">{talk.event}</p>
-              <p class="location">
+              <p class="text-text-muted mb-1">{talk.event}</p>
+              <p class="text-text-subtle text-sm mb-4">
                 {talk.location} · {talk.date}
               </p>
-              <div class="links">
+              <div class="flex gap-4 text-sm">
                 {Object.entries(talk.links).map(([type, url]) => (
-                  <a href={url}>
+                  <a
+                    href={url}
+                    class="text-accent hover:text-accent-hover transition-colors font-medium"
+                  >
                     [{type}]
                   </a>
                 ))}

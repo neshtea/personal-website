@@ -7,80 +7,24 @@ import profile from "../../images/profile.jpg";
 const t = translations.en;
 ---
 
-<style>
-  article {
-    max-width: 48rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 3rem;
-  }
-
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 3rem;
-    }
-  }
-
-  .content {
-    color: #666;
-    font-size: 1.125rem;
-    line-height: 1.6;
-  }
-
-  .content p {
-    margin-bottom: 1.5rem;
-  }
-
-  .grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .grid p {
-    padding-right: 1.25rem;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-top: 4rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .content a {
-    color: #0066cc;
-  }
-
-  .content a:hover {
-    text-decoration: underline;
-  }
-</style>
-
 <Layout title={`${t.about.title} - Marco Schneider`} lang="en">
-  <article>
-    <h1>
+  <article class="max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-12">
       {t.about.title}
     </h1>
 
-    <div class="content">
-      <div class="grid">
-        <p>
+    <div
+      class="prose prose-invert max-w-none space-y-6 text-text-muted text-lg leading-relaxed"
+    >
+      <div class="grid grid-cols-3">
+        <p class="col-span-2 pr-5">
           I'm Marco Schneider, I live in Vienna, Austria, and I write software.
           I work at <a
+            class="text-accent hover:underline"
             href="https://active-group.de">Active Group GmbH</a
           >, one of the leading providers of custom software using functional
           programming in Germany as a software architect, developer and <a
+            class="text-accent hover:underline"
             href="https://active-group.de/team/marco-schneider/"
             >chief technology facilitator</a
           >. At Active Group, I work on different projects utilising a variety
@@ -88,16 +32,18 @@ const t = translations.en;
           programming and functional software architecture in workshops and
           speak about it at conferences. I'm a certified trainer for the iSAQB
           CSPA-A module <a
+            class="text-accent hover:underline"
             href="https://www.isaqb.org/certifications/cpsa-certifications/cpsa-advanced-level/funar-functional-software-architecture/?ref=defmarco.com"
             >FUNAR - Functional Software Architecture</a
           >.
         </p>
         <Image
           src={profile}
+          class="object-scale-down rounded-xl"
           alt="Profile picture of Marco, wearing sunglasses and a brown dress shirt. The image is intentionally blurry."
         />
       </div>
-      <h2>Programming</h2>
+      <h2 class="text-2xl font-display font-bold mt-16 mb-6">Programming</h2>
       <p>
         I'm interested in functional programming, functional software
         architecture and its application in the industry. I love Lisp-languages
@@ -109,10 +55,18 @@ const t = translations.en;
       </p>
       <p>
         Every now and then I contribute to <a
+          class="text-accent hover:underline"
           href="https://funktionale-programmierung.de"
           >funktionale-programmierung.de</a
         > — the largest German language blog on all things functional programming.
       </p>
+      <!-- 
+      <h2 class="text-2xl font-display font-bold mt-16 mb-6">
+        {t.about.interests}
+      </h2>
+      <p class="text-text-muted text-lg leading-relaxed">
+        List your professional and personal interests here.
+      </p> -->
     </div>
   </article>
 </Layout>

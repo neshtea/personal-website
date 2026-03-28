@@ -5,116 +5,61 @@ import { translations } from "../../i18n/translations";
 const t = translations.de;
 ---
 
-<style>
-  article {
-    max-width: 48rem;
-  }
-
-  h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-bottom: 3rem;
-  }
-
-  @media (min-width: 768px) {
-    h1 {
-      font-size: 3rem;
-    }
-  }
-
-  .intro {
-    font-size: 1.25rem;
-    color: #666;
-    margin-bottom: 3rem;
-  }
-
-  .grid {
-    display: grid;
-    gap: 3rem;
-  }
-
-  @media (min-width: 768px) {
-    .grid {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  h3 {
-    color: #4ade80;
-    font-weight: 600;
-    margin-bottom: 1rem;
-    font-size: 1.125rem;
-  }
-
-  .email-link {
-    color: #666;
-    font-size: 1.125rem;
-  }
-
-  .email-link:hover {
-    color: #0066cc;
-  }
-
-  ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    font-size: 1.125rem;
-  }
-
-  ul a {
-    color: #666;
-  }
-
-  ul a:hover {
-    color: #0066cc;
-  }
-</style>
-
 <Layout title={`${t.contact.title} - Marco Schneider`} lang="de">
-  <article>
-    <h1>
+  <article class="max-w-3xl">
+    <h1 class="text-4xl md:text-5xl font-display font-bold mb-12">
       {t.contact.title}
     </h1>
 
-    <p class="intro">
+    <p class="text-xl text-text-muted mb-12">
       {t.contact.intro}
     </p>
 
-    <div class="grid">
+    <div class="grid md:grid-cols-2 gap-12">
       <div>
-        <h3>{t.contact.email}</h3>
+        <h3 class="text-green font-semibold mb-4 text-lg">{t.contact.email}</h3>
         <a
           href="mailto:marco.schneider@posteo.de"
-          class="email-link"
+          class="text-text-muted hover:text-accent transition-colors text-lg"
         >
           marco.schneider@posteo.de
         </a>
       </div>
 
       <div>
-        <h3>
+        <h3 class="text-green font-semibold mb-4 text-lg">
           {t.contact.social}
         </h3>
-        <ul>
+        <ul class="space-y-3 text-lg">
           <li>
-            <a href="https://chaos.social/@anarres">
+            <a
+              href="https://chaos.social/@anarres"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
               Fediverse
             </a>
           </li>
           <li>
-            <a href="https://github.com/neshtea">
+            <a
+              href="https://github.com/neshtea"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
               GitHub
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/marco-schneider-34391612a/">
+            <a
+              href="https://www.linkedin.com/in/marco-schneider-34391612a/"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
               LinkedIn
             </a>
           </li>
           <li>
-            <a href="https://bsky.app/profile/defmarco.bsky.social">
+            <a
+              href="https://bsky.app/profile/defmarco.bsky.social"
+              class="text-text-muted hover:text-accent transition-colors"
+            >
               Bluesky
             </a>
           </li>
