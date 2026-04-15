@@ -1,5 +1,5 @@
 ---
-title: Workshop: "FP in Typescript" at BOB 2026
+title: 'Workshop: "FP in Typescript" at BOB 2026'
 pubDate: 2026-03-21
 description: I filled in at BOB Konf 2026!
 ---

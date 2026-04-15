@@ -1,5 +1,5 @@
 ---
-title: Workshop: "FP in Typescript" bei der BOB 2026
+title: 'Workshop: "FP in Typescript" bei der BOB 2026'
 pubDate: 2026-03-21
 description: Ich durfte auf der BOB Konf 2026 als Vertretung einspringen!
 ---

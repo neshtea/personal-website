@@ -1,17 +1,15 @@
-import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-
-import cloudflare from '@astrojs/cloudflare';
+import { defineConfig } from "astro/config";
+import cloudflare from "@astrojs/cloudflare";
 
 export default defineConfig({
-  site: 'https://defmarco.com',
-  integrations: [tailwind()],
-  output: 'static',
+  site: "https://defmarco.com",
+  integrations: [],
+  output: "static",
 
   i18n: {
-    defaultLocale: 'de',
-    locales: ['de', 'en'],
+    defaultLocale: "de",
+    locales: ["de", "en"],
   },
 
-  adapter: cloudflare()
+  adapter: cloudflare(),
 });

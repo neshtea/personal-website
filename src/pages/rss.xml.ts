@@ -13,8 +13,8 @@ export async function GET(context) {
       content: "http://purl.org/rss/1.0/modules/content/",
     },
     items: posts.map((post) => {
-      const lang = post.slug.startsWith("de/") ? "de" : "en";
-      const slug = post.slug.replace(`${lang}/`, "");
+      const lang = post.id.startsWith("de/") ? "de" : "en";
+      const slug = post.id.replace(`${lang}/`, "");
       return {
         title: clean(post.data.title!),
         pubDate: post.data.pubDate,
