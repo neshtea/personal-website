@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^13.1.4",
     "@astrojs/rss": "^4.0.18",
     "astro": "^6.1.1",
     "autoprefixer": "^10.4.21",
